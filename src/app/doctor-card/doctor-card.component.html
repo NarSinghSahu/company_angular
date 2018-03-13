@@ -1,0 +1,19 @@
+<div class="card mt-5 ml-4" style="width: 250px ">
+  <img src="../../assets/images/person.jpg" alt="" class="img-fluid">
+<div class="card-body">
+  <h4 class="text-capitalize"> {{doctor.data.spec}}</h4>
+  <p class="card-text blockquote ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+     Perspiciatis consequatur dolor est, animi dolore soluta corrupti distinctio vero
+      maiores dolorum illo debitis blanditiis porro. Ducimus fugiat excepturi
+       esse voluptatem est!</p>
+   
+</div>
+<div class="card-img-overlay h-25">
+    <span (click)="edit(doctor.data)" class="glyphicon glyphicon-pencil text-white pull-right" ></span>
+    <h4 class="card-title text-white font-weight-bold" >{{doctor.data.name}}</h4>
+</div>
+<div class="card-footer">
+  <button type="button" class="btn btn-info" (click)="profile(doctor)">See Profile</button>
+</div>
+
+</div>

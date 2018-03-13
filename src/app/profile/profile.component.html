@@ -1,0 +1,194 @@
+
+<div class="container mt-5">
+
+      <ul class=" list-unstyled">
+          <li *ngFor="let employee of employees ; let i = index" >
+
+             <div class="row">
+               <div class="col-lg-12">
+                  <div class="container border border-success m-2 p-1">
+                      <div class="row">
+                                    <div class="card h-50 col-lg-2" style="width:150px ">
+                                            <div *ngIf="employee.data.gender === 'MALE'" ><img src="../../assets/images/male3.jpg" alt="" class="img-fluid"></div>
+                                            <div *ngIf="employee.data.gender === 'FEMALE'" ><img src="../../assets/images/female1.jpg" alt="" class="img-fluid"></div>
+                                            
+                                            <div class="card-img-overlay h-25 p-1 m-0">
+                                                    <span  class="glyphicon glyphicon-pencil text-success pull-right" style="cursor:pointer" (click)="edit(employee)"></span>
+                                                
+                                            </div>
+                                            <div class="card-body mb-2 p-0">
+                                                    <h4 class="card-text text-center text-success ">{{employee.data.firstname}} {{employee.data.lastname}}</h4>
+                                            </div>
+
+                                    </div>
+                                    <div class=" container col-lg-9 ">
+                                            <h5 class="font-weight-bold text.warning">{{employee.data.job}}</h5>
+                                            <hr>
+                                            <p class="doublequote"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta a quo
+                                                laudantium molestiae vel nisi, nobis tempore odio? Perferendis ex voluptate dolores harum 
+                                                numquam dolorem praesentium. Amet deserunt nihil aliquid!
+                                            </p>
+                                            <br>
+                                            
+                                             <button class="btn btn-primary pull-right btn-md" (click)="showProfile(employee)" >See Profile</button>
+                                            
+                                            
+
+                                    </div>
+                            </div>
+                    </div>
+               </div>
+             </div>
+
+          </li>
+
+      </ul>
+
+      <hr>
+      <br>      
+
+
+
+<!-- <button class="btn btn-success pull-right" data-toggle="modal" data-target="#addModal" >Register</button> -->
+<br>
+<hr><br><br>
+<h3 class="text-success pl-1">Hurry! Join Us </h3>
+<form  class=" border border-success form form-vertical p-5">
+    
+          <div class="row">
+              <!-- <div class="col-md-2">
+                  <div class="card">
+                        <input type="file" id="file1" name="image" accept="image/*" capture style="display:none"/>
+                        <img src="../../assets/images/unknown.jpg" class="img img-responsive" id="upfile1" style="cursor:pointer" />
+                        <div class="card-img-overlay">
+                            <h5>Upload photo</h5>
+                        </div>
+                  </div> 
+                    
+
+              </div>-->
+              <div class="col-md-12">
+                  <label >Name <span class="text-danger">*</span></label>
+                  <div class="row">
+                        
+                     <div class="form-group col-lg-6">
+                            <input name ="first" type="text" class="form-control hidden"  [(ngModel)]="employeeProfile.key">
+                            <input name ="first" type="text" class="form-control" [(ngModel)]="employeeProfile.firstname"><p>First</p>
+                      </div>
+                      <div class="form-group col-lg-6">
+                            <input name = "last" type="text" class="form-control" [(ngModel)]="employeeProfile.lastname"><p>Last</p>
+                      </div>
+                      
+                  </div>
+                  <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label for="age" >Age <span class="text-danger">*</span></label>
+                            <input name ="age" type="number" class="form-control" [(ngModel)]="employeeProfile.age">
+                        </div>
+                        <div class="form-group col-lg-6">
+                                <label for="gender" >Gender <span class="text-danger">*</span></label>
+                                <select name = "gender" class="form-control" [(ngModel)]="employeeProfile.gender">
+                                    <option>MALE</option>
+                                    <option>FEMALE</option>
+                                    <option>OTHER</option>
+                                </select>
+                        </div>
+                      
+                  </div>
+             </div>
+        </div>
+                  <div class="form-group ">
+                      <label for="role" >Role<span class="text-danger">*</span></label>
+                      <input name="role" type="text"  placeholder="What's your role ?"class="form-control" [(ngModel)]="employeeProfile.job">
+                      
+                  </div>
+                  <div class="form-group ">
+                      <label for="email" >Email<span class="text-danger">*</span></label>
+                      <input name="email" type="email"  placeholder="Your email  "class="form-control" [(ngModel)]="employeeProfile.email">
+                      
+                  </div>
+    
+                  <div class="form-group ">
+                      <label for="about" >About Career</label>
+                      <textarea name="about" rows="5" placeholder="Tell something about yourself ... "class="form-control" [(ngModel)]="employeeProfile.about"></textarea>
+                      
+                  </div>
+                 
+                  <button class="btn btn-primary pull-right" *ngIf="isSave"(click)="setEmployee()" >Save</button>
+                  <button class="btn btn-primary pull-right" *ngIf="isEdit"(click)="updateEmployee()" >Edit</button>
+                  <br>
+              
+          
+      </form>
+
+
+      
+    
+<!--
+ 
+<div id="addModal" class="modal fade">
+
+  <div class="modal-dialog modal-lg">
+
+      <div class="modal-content">
+         
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+           
+          <div  class=" modal-body container ">
+             <app-add></app-add>
+          </div>
+
+      </div>
+  </div>
+</div>
+
+-->
+
+
+</div>
+
+<div class="container mt-5" >
+        <hr>
+        <br>
+        <br>
+        <hr>
+    
+      <div class="row">
+    
+            <div class="col-lg-3">
+              <img src="../../assets/images/male3.jpg" alt="" class="img-fluid img-thumbnail">
+            </div>
+            <div class="col-lg-9">
+    
+                <div class="dropdown pull-right">
+                    <button type="button" class="btn btn-default " data-toggle="dropdown">
+                     <span class="glyphicon glyphicon-option-vertical"></span>
+                    
+                    </button>
+                    <div class="dropdown-menu" >
+                      <a class="dropdown-item"  (click)="deleteEmployee()" >Delete</a>
+                      
+                    </div>
+                  </div>
+    
+              <h4>{{showEmp.data.firstname}} {{showEmp.data.lastname}}</h4>
+              <hr>
+              <h4 class="text-capitalized">Role : {{showEmp.data.job}}</h4>
+              <hr>
+              <h5><strong>About Career :</strong></h5>
+              <p class="doublequote">
+                    {{showEmp.data.about}}
+                
+              </p>
+            </div>
+      </div>
+      <hr>
+      <br>
+      <br>
+      <hr>
+    </div>
+
+
+

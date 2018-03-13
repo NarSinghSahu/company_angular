@@ -1,0 +1,167 @@
+<div class="container">
+
+  <div class="card mt-0">
+      <img src="../../assets/images/hospital.jpg" alt="" class="img-fluid">
+      <h1 class="card-img-overlay text-warning pt-0 pl-4 text-right">Jevan  Hospital</h1>
+  </div>
+  
+
+<div class="row">
+    <div class="col-lg-12">
+      <!--
+            <table class="table table-hover .table-responsive-xl table-bordered table-seperated ">
+              <thead class="table-warning">
+                <tr>
+                  <th></th>
+                  <th>Age</th>
+                  <th>Sepecilization</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let doc of docData" >
+                  <th class="card " style="width:250px">
+                    <img src="../../assets/images/person.jpg" alt="" class="card-img-top img-fluid " >
+                    
+                    <div class="card-body">
+                        <h3 class="card-title">{{doc.data.name}}</h3>
+                    </div>
+                  </th>
+                  <th>{{doc.data.age}}</th>
+                  <th>{{doc.data.spec}}</th>
+                  <th><button class="btn btn-danger"><span (click)="deleteDoctor(doc.key)" class="glyphicon glyphicon-trash"></span></button></th>
+                  <th><button class="btn btn-primary"><span (click)="edit(doc.data)" class="glyphicon glyphicon-pencil"></span></button></th>
+                </tr>
+              </tbody>
+            </table>
+
+          -->
+    </div>
+
+  </div>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <ul class="list-inline ">
+                <li *ngFor="let doc of docData">
+                    <!-- <div class="card mt-5 ml-4" style="width: 250px ">
+                            <img src="../../assets/images/person.jpg" alt="" class="img-fluid">
+                          <div class="card-body">
+                            <h4 class="text-capitalize"> {{doc.data.spec}}</h4>
+                            <p class="card-text blockquote ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                               Perspiciatis consequatur dolor est, animi dolore soluta corrupti distinctio vero
+                                maiores dolorum illo debitis blanditiis porro. Ducimus fugiat excepturi
+                                 esse voluptatem est!</p>
+                             
+                          </div>
+                          <div class="card-img-overlay h-25">
+                              <span (click)="edit(doc.data)" class="glyphicon glyphicon-pencil text-white pull-right" ></span>
+                              <h4 class="card-title text-white font-weight-bold" >{{doc.data.name}}</h4>
+                          </div>
+                          <div class="card-footer">
+                            <button type="button" class="btn btn-info" (click)="profile(doc)">See Profile</button>
+                          </div>
+                         
+                    </div>
+ -->
+
+                        <app-doctor-card [doctor]="doc"></app-doctor-card>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<hr>
+<button class="btn btn-warning pull-right"  (click)="toggle(1)" >Add</button>
+<br>
+<hr>
+
+<div class="container card" [hidden]="!showTemplate">
+  <br>
+<form class="form card-body  col-lg-offset-2 col-lg-8">
+    <input name="name" class="form-control" type="text" hidden [(ngModel)]="newDoc.key" >
+ <div class="form-group">
+   <label for="name">Name</label>
+   <input name="name" class="form-control " type="text" [(ngModel)]="newDoc.name" >
+ </div>
+
+ <div class="form-group">
+    <label for="age">Age</label>
+    <input name="age" class="form-control" type="number" [(ngModel)]="newDoc.age" >
+  </div>
+
+  <div class="form-group">
+      <label for="spec">Specialization</label>
+      <input name="spec" class="form-control" type="text" [(ngModel)]="newDoc.spec" >
+    </div>
+
+  <button class="btn-primary btn pull-right" [hidden]="!isAdd" (click)="add()">Save</button>
+  <button class="btn-primary btn pull-right" [hidden]="!isEdit"(click)="update(newDoc.key)">Edit</button>
+
+  <br>
+
+</form>
+
+</div>
+
+<div class="container mt-5" *ngIf="showProfile">
+<hr>
+  <div class="row">
+
+        <div class="col-lg-3">
+          <img src="../../assets/images/person.jpg" alt="" class="img-fluid img-thumbnail">
+        </div>
+        <div class="col-lg-9">
+
+            <div class="dropdown pull-right" *ngIf="profileDoc.data.name">
+                <button type="button" class="btn btn-default " data-toggle="dropdown">
+                 <span class="glyphicon glyphicon-option-vertical"></span>
+                
+                </button>
+                <div class="dropdown-menu" >
+                  <a class="dropdown-item"  (click)="deleteDoctor('1')" >Delete</a>
+                  
+                </div>
+              </div>
+
+          <h3>{{profileDoc.data.name}}</h3>
+          <h4 class="text-capitalized">Specialized In : {{profileDoc.data.spec}}</h4>
+          <hr>
+          <h5><strong>About Career :</strong></h5>
+          <p class="doublequote">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Maiores temporibus sequi,iste sit blanditiis dolore assumenda id tenetur ex 
+             asperiores eveniet dolores maxime quibusdam enim autem delectus nesciunt dicta
+             amet consectetur adipisicing Maiores temporibus sequi,iste sit blanditiis dolore 
+             assumenda id tenetur ex  asperiores eveniet dolores maxime quibusdam enim
+             <br><br>
+             Asperiores eveniet dolores maxime quibusdam enim autem delectus nesciunt dicta
+             amet consectetur adipisicing Maiores temporibus sequi,iste sit blanditiis dolore 
+             assumenda id tenetur ex  asperiores eveniet dolores maxime quibusdam enim
+             asperiores eveniet dolores maxime quibusdam enim autem delectus nesciunt dicta
+             amet consectetur adipisicing Maiores temporibus sequi,iste sit blanditiis dolore 
+             assumenda id tenetur ex  asperiores eveniet dolores maxime quibusdam enim
+            
+          </p>
+        </div>
+  </div>
+</div>
